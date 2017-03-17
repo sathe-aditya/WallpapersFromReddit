@@ -56,8 +56,10 @@ def download(dCount):
 		print("New directory Made!")
   
 	for i in data["data"]["children"]:
-
-	  imurl = i["data"]["url"]
+		if "preview" in i["data"]:
+			if "images" in i["data"]["preview"]:
+				if "source" in i["data"]["preview"]["images"]:
+	  				imurl = i["data"]["preview"]["images"]["source"]["url"]
 	  checkUrl = str(imurl)
 
 	  #Checking if the link extracted is actually an image
